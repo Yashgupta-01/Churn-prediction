@@ -35,3 +35,4 @@ The project is built with:
 - Output:
   - Churn Prediction (`Churned` or `Not Churned`)
   - Confidence score
+- Accuracy: 79.94%
