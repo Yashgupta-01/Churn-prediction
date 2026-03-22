@@ -29,6 +29,7 @@ The project is built with:
      - `preprocessor.joblib`
 
 ## 🖥️ Dashboard (Streamlit App)
+A predictive streamlit app to demonstrate the working UI of the project.
 
 - Inputs:
   - Age, Salary, Calls Made, SMS Sent, Data Used, Telecom Partner, Gender, City
