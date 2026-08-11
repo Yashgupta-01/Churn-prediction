@@ -1,39 +1,69 @@
-# 📞 Telecom Churn Prediction Dashboard
+# 📉 Telecom Churn Prediction
 
-This project predicts customer churn in a telecom company using machine learning and provides an interactive web-based dashboard for real-time predictions.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.25+-red.svg)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3+-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## 🚀 Project Overview
+## 📌 Problem Statement
 
-Churn prediction is critical for telecom businesses to identify customers likely to leave. This system allows users to input customer data and receive churn predictions with confidence scores using a trained machine learning model.
+In the highly competitive telecom industry, Customer Acquisition Cost (CAC) is a significant expense—it costs 5-7x more to acquire a new customer than to retain an existing one. Unpredictable customer churn leads to massive revenue leakage because companies usually only realize a customer is unhappy *after* they have left for a competitor.
 
-The project is built with:
-- Python 🐍
-- Scikit-learn for ML modeling
-- Streamlit for dashboard UI
-- Ngrok for exposing the app (in Colab)
-- Joblib for saving/loading models
+## 🚀 Solution
 
-## 🧠 Machine Learning Pipeline
+This project provides an end-to-end Machine Learning solution to proactively predict customer churn. By analyzing demographic data, location, and telecom usage patterns, the model predicts the likelihood of a customer leaving. 
 
-1. **Data Cleaning & Preprocessing**  
-   - Handled missing values, encoded categorical variables.
-   - Used `StandardScaler` and `OneHotEncoder` via `ColumnTransformer`.
+This enables Customer Success and Retention teams to transition from a **reactive** approach to a **proactive** strategy, offering targeted retention discounts to high-risk customers before they churn.
 
-2. **Model Training**
-   - Trained a `RandomForestClassifier` with `max_depth=15`, `n_estimators=100`.
-   - Pipeline built with `sklearn.pipeline.Pipeline`.
+## 💡 Key Features
 
-3. **Model Export**
-   - Trained model and preprocessing pipeline saved as:
-     - `random_forest_classifier.pkl`
-     - `preprocessor.joblib`
+- **End-to-End ML Pipeline:** Seamless data preprocessing (StandardScaler & OneHotEncoder) bundled with the model into a single robust Scikit-Learn Pipeline.
+- **Predictive Accuracy:** Achieved ~80% accuracy using a tuned Random Forest Classifier, outperforming the baseline Logistic Regression model.
+- **Real-Time Interactive Dashboard:** A premium, user-friendly web application built with Streamlit for frontline employees to assess customer risk instantly.
+- **Probabilistic Risk Alerts:** Outputs the exact probability percentage of churn (e.g., 85% High Risk) rather than just a boolean value, allowing businesses to prioritize critical accounts.
 
-## 🖥️ Dashboard (Streamlit App)
-A predictive streamlit app to demonstrate the working UI of the project.
+## 🛠️ Technology Stack
 
-- Inputs:
-  - Age, Salary, Calls Made, SMS Sent, Data Used, Telecom Partner, Gender, City
-- Output:
-  - Churn Prediction (`Churned` or `Not Churned`)
-  - Confidence score
-- Accuracy: 79.94%
+- **Data Processing & ML:** `pandas`, `numpy`, `scikit-learn`
+- **Model Serialization:** `joblib`
+- **Web Dashboard:** `streamlit`
+
+## ⚙️ Installation & Local Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Yashgupta-01/Churn-prediction.git
+   cd Churn-prediction
+   ```
+
+2. **Create a virtual environment (Optional but recommended):**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   ```
+
+3. **Install the dependencies:**
+   ```bash
+   pip install -r dashboard/requirements.txt
+   ```
+
+## 🖥️ Usage
+
+**To run the interactive Streamlit dashboard:**
+```bash
+streamlit run dashboard/app.py
+```
+The dashboard will open automatically in your default web browser at `http://localhost:8501`. 
+
+*(Simply enter the customer's demographics and telecom usage to instantly see their churn probability!)*
+
+## 🧠 Model Training
+
+If you wish to retrain the machine learning pipeline from scratch using the raw data:
+```bash
+python scripts/train_pipeline.py
+```
+This script will read the raw dataset, build the ColumnTransformer and RandomForest model, split the data, train the pipeline, and save the updated `.pkl` artifact directly into the `models/` directory.
+
+---
+*Developed by [Yash Gupta](https://github.com/Yashgupta-01).*
